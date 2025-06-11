@@ -1,0 +1,20 @@
+# Carpetas comunes que no necesitan formateo
+node_modules
+.next
+out
+dist
+coverage
+build
+
+# Archivos de configuración o lockfiles
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Archivos del sistema o IDE
+.DS_Store
+.vscode
+.idea
+
+# Archivos de producción o temporales
+*.log

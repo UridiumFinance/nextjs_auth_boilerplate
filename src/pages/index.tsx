@@ -1,3 +1,5 @@
+import Layout from "@/hocs/Layout";
+
 export default function Home() {
   return (
     <div>
@@ -7,3 +9,7 @@ export default function Home() {
     </div>
   );
 }
+
+Home.getLayout = function getLayout(page: React.ReactElement) {
+  return <Layout>{page}</Layout>;
+};

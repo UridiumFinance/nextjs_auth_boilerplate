@@ -6,6 +6,7 @@ import { activate } from "@/redux/actions/auth/actions";
 import { IActivationProps } from "@/redux/actions/auth/interfaces";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import { useRouter } from "next/router";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { UnknownAction } from "redux";
@@ -19,6 +20,8 @@ export default function Page() {
 
   const dispatch: ThunkDispatch<any, any, UnknownAction> = useDispatch();
   const [loading, setLoading] = useState<boolean>(false);
+
+  const router = useRouter();
 
   const handleOnSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -36,6 +39,7 @@ export default function Page() {
     try {
       setLoading(true);
       await dispatch(activate(activationData));
+      router.push("/login");
     } catch (err) {
       ToastError(`${err}`);
     } finally {

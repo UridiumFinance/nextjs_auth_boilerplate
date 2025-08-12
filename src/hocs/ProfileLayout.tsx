@@ -26,11 +26,11 @@ export default function ProfileLayout({ children }: PageProps) {
   }));
 
   return (
-    <div>
+    <div className="text-color-text transition-colors">
       <Dialog open={sidebarOpen} onClose={setSidebarOpen} className="relative z-50 lg:hidden">
         <DialogBackdrop
           transition
-          className="fixed inset-0 bg-gray-900/80 transition-opacity duration-300 ease-linear data-[closed]:opacity-0"
+          className="fixed inset-0 bg-black/60 transition-opacity duration-300 ease-linear data-[closed]:opacity-0"
         />
 
         <div className="fixed inset-0 flex">
@@ -46,13 +46,13 @@ export default function ProfileLayout({ children }: PageProps) {
                   className="-m-2.5 p-2.5"
                 >
                   <span className="sr-only">Close sidebar</span>
-                  <XMarkIcon aria-hidden="true" className="size-6 text-white" />
+                  <XMarkIcon aria-hidden="true" className="text-color-heading size-6" />
                 </button>
               </div>
             </TransitionChild>
 
-            {/* Sidebar component, swap this element with another sidebar if you like */}
-            <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-white px-6 pb-2">
+            {/* Sidebar móvil */}
+            <div className="bg-color-main flex grow flex-col gap-y-5 overflow-y-auto px-6 pb-2 transition-colors">
               <div className="flex h-16 shrink-0 items-center">
                 <Link href="/">
                   <Image
@@ -74,17 +74,17 @@ export default function ProfileLayout({ children }: PageProps) {
                             href={item.href}
                             className={classNames(
                               item.current
-                                ? "bg-gray-50 text-indigo-600"
-                                : "text-gray-700 hover:bg-gray-50 hover:text-indigo-600",
-                              "group flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold",
+                                ? "bg-color-second text-color-primary"
+                                : "text-color-text hover:bg-color-second hover:text-color-primary",
+                              "group flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold transition-colors",
                             )}
                           >
                             <item.icon
                               aria-hidden="true"
                               className={classNames(
                                 item.current
-                                  ? "text-indigo-600"
-                                  : "text-gray-400 group-hover:text-indigo-600",
+                                  ? "text-color-primary"
+                                  : "text-color-subtext group-hover:text-color-primary",
                                 "size-6 shrink-0",
                               )}
                             />
@@ -101,10 +101,9 @@ export default function ProfileLayout({ children }: PageProps) {
         </div>
       </Dialog>
 
-      {/* Static sidebar for desktop */}
+      {/* Sidebar desktop */}
       <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
-        {/* Sidebar component, swap this element with another sidebar if you like */}
-        <div className="flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-white px-6">
+        <div className="border-color-border bg-color-main flex grow flex-col gap-y-5 overflow-y-auto border-r px-6 transition-colors">
           <div className="flex h-16 shrink-0 items-center">
             <Link href="/">
               <Image
@@ -126,17 +125,17 @@ export default function ProfileLayout({ children }: PageProps) {
                         href={item.href}
                         className={classNames(
                           item.current
-                            ? "bg-gray-50 text-indigo-600"
-                            : "text-gray-700 hover:bg-gray-50 hover:text-indigo-600",
-                          "group flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold",
+                            ? "bg-color-second text-color-primary"
+                            : "text-color-text hover:bg-color-second hover:text-color-primary",
+                          "group flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold transition-colors",
                         )}
                       >
                         <item.icon
                           aria-hidden="true"
                           className={classNames(
                             item.current
-                              ? "text-indigo-600"
-                              : "text-gray-400 group-hover:text-indigo-600",
+                              ? "text-color-primary"
+                              : "text-color-subtext group-hover:text-color-primary",
                             "size-6 shrink-0",
                           )}
                         />
@@ -146,17 +145,18 @@ export default function ProfileLayout({ children }: PageProps) {
                   ))}
                 </ul>
               </li>
+
               <li className="-mx-6 mt-auto">
                 <Link
                   href="/profile"
-                  className="flex items-center gap-x-4 px-6 py-3 text-sm/6 font-semibold text-gray-900 hover:bg-gray-50"
+                  className="text-color-heading hover:bg-color-second flex items-center gap-x-4 px-6 py-3 text-sm/6 font-semibold transition-colors"
                 >
                   <Image
                     width={512}
                     height={512}
                     alt=""
                     src={user?.profile_picture}
-                    className="size-8 rounded-full bg-gray-50"
+                    className="bg-color-second size-8 rounded-full"
                   />
                   <span className="sr-only">Your profile</span>
                   <span aria-hidden="true">
@@ -169,24 +169,25 @@ export default function ProfileLayout({ children }: PageProps) {
         </div>
       </div>
 
-      <div className="sticky top-0 z-40 flex items-center gap-x-6 bg-white px-4 py-4 shadow-sm sm:px-6 lg:hidden">
+      {/* Top bar móvil */}
+      <div className="bg-color-main sticky top-0 z-40 flex items-center gap-x-6 px-4 py-4 shadow-sm transition-colors sm:px-6 lg:hidden">
         <button
           type="button"
           onClick={() => setSidebarOpen(true)}
-          className="-m-2.5 p-2.5 text-gray-700 lg:hidden"
+          className="text-color-text hover:bg-color-second focus-visible:outline-color-primary -m-2.5 rounded-md p-2.5 transition-colors focus-visible:outline-2 focus-visible:-outline-offset-2 lg:hidden"
         >
           <span className="sr-only">Open sidebar</span>
           <Bars3Icon aria-hidden="true" className="size-6" />
         </button>
-        <div className="flex-1 text-sm/6 font-semibold text-gray-900">Dashboard</div>
-        <Link href="/profile">
+        <div className="text-color-heading flex-1 text-sm/6 font-semibold">Dashboard</div>
+        <Link href="/profile" className="rounded-full">
           <span className="sr-only">Your profile</span>
           <Image
             width={512}
             height={512}
             alt=""
             src={user?.profile_picture}
-            className="size-8 rounded-full bg-gray-50"
+            className="bg-color-second size-8 rounded-full"
           />
         </Link>
       </div>

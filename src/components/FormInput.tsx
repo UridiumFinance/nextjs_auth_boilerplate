@@ -61,9 +61,10 @@ export default function FormInput({
   return (
     <div>
       <div className="flex items-center justify-between">
-        <span className="block text-sm/6 font-medium text-gray-900">{title}</span>
+        <span className="text-color-heading block text-sm/6 font-medium">{title}</span>
         {renderCTA()}
       </div>
+
       <div className="relative mt-2">
         <input
           value={data}
@@ -73,13 +74,14 @@ export default function FormInput({
           placeholder={placeholder}
           maxLength={maxLength}
           onChange={handleChange}
-          className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+          className="bg-color-main text-color-text placeholder:text-color-subtext ring-color-border focus:ring-color-primary block w-full rounded-md px-3 py-1.5 text-base ring-1 ring-inset focus:ring-2 focus:outline-none disabled:cursor-not-allowed disabled:opacity-60 sm:text-sm/6"
         />
+
         {isPasswordType && (
           <button
             type="button"
             onClick={togglePasswordVisibility}
-            className="absolute inset-y-0 right-3 flex items-center text-sm text-indigo-600 hover:text-indigo-500"
+            className="text-color-primary hover:text-color-secondary focus-visible:outline-color-primary absolute inset-y-0 right-3 flex items-center rounded-md px-1.5 text-sm font-medium focus-visible:outline-2 focus-visible:-outline-offset-2"
           >
             {showPassword ? "Hide" : "Show"}
           </button>

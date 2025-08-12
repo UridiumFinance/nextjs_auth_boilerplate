@@ -75,9 +75,9 @@ export default function Page() {
   };
 
   return (
-    <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+    <div className="text-color-text flex min-h-full flex-1 flex-col justify-center px-6 py-12 transition-colors lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-        <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">
+        <h2 className="text-color-heading mt-10 text-center text-2xl/9 font-bold tracking-tight">
           Sign in to your account
         </h2>
       </div>
@@ -92,9 +92,12 @@ export default function Page() {
             </Button>
           </form>
 
-          <p className="mt-10 text-center text-sm/6 text-gray-500">
+          <p className="text-color-subtext mt-10 text-center text-sm/6">
             Not a member?{" "}
-            <Link href="/register" className="font-semibold text-indigo-600 hover:text-indigo-500">
+            <Link
+              href="/register"
+              className="text-color-primary hover:text-color-secondary font-semibold transition-colors"
+            >
               Register here
             </Link>
           </p>
@@ -104,16 +107,19 @@ export default function Page() {
       {step === 2 && (
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <form onSubmit={handleOTPSubmit} className="space-y-6">
-            <FormInput data={otp} setData={setOTP} type="text" kind="text" title="OTP COde" />
+            <FormInput data={otp} setData={setOTP} type="text" kind="text" title="OTP Code" />
 
             <Button type="submit" disabled={loading} className="w-full">
               {loading ? <LoadingMoon /> : "Sign in"}
             </Button>
           </form>
 
-          <p className="mt-10 text-center text-sm/6 text-gray-500">
+          <p className="text-color-subtext mt-10 text-center text-sm/6">
             Not a member?{" "}
-            <Link href="/register" className="font-semibold text-indigo-600 hover:text-indigo-500">
+            <Link
+              href="/register"
+              className="text-color-primary hover:text-color-secondary font-semibold transition-colors"
+            >
               Register here
             </Link>
           </p>

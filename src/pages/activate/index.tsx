@@ -48,9 +48,9 @@ export default function Page() {
   };
 
   return (
-    <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+    <div className="bg-color-bg text-color-text flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-        <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">
+        <h2 className="text-color-heading mt-10 text-center text-2xl/9 font-bold tracking-tight">
           Activate your account
         </h2>
       </div>
@@ -64,9 +64,12 @@ export default function Page() {
           </div>
         </form>
 
-        <p className="mt-10 text-center text-sm/6 text-gray-500">
+        <p className="text-color-subtext mt-10 text-center text-sm/6">
           Already a member?{" "}
-          <Link href="/login" className="font-semibold text-indigo-600 hover:text-indigo-500">
+          <Link
+            href="/login"
+            className="text-color-primary hover:text-color-secondary font-semibold transition-colors"
+          >
             Login here
           </Link>
         </p>

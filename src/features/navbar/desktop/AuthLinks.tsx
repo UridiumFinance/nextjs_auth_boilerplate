@@ -34,28 +34,30 @@ export default function AuthLinks() {
 
       <MenuItems
         transition
-        className="absolute right-0 z-10 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white p-1 shadow-lg ring-1 ring-black/5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[enter]:ease-out data-[leave]:duration-75 data-[leave]:ease-in"
+        className="divide-color-border bg-color-main text-color-text ring-color-border absolute right-0 z-10 mt-2 w-56 origin-top-right divide-y rounded-md p-1 shadow-lg ring-1 transition-colors focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[enter]:ease-out data-[leave]:duration-75 data-[leave]:ease-in"
       >
         <div className="px-4 py-3">
-          <p className="text-sm">Signed in as</p>
-          <p className="truncate text-sm font-medium text-gray-900">{user?.username}</p>
+          <p className="text-color-subtext text-sm">Signed in as</p>
+          <p className="text-color-heading truncate text-sm font-medium">{user?.username}</p>
         </div>
+
         <div className="py-1">
           <MenuItem>
             <Link
               href="/profile"
-              className="block w-full rounded-lg px-4 py-2 text-left text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900 data-[focus]:outline-none"
+              className="text-color-text hover:bg-color-second hover:text-color-heading data-[focus]:bg-color-second data-[focus]:text-color-heading block w-full rounded-lg px-4 py-2 text-left text-sm transition-colors data-[focus]:outline-none"
             >
               Account settings
             </Link>
           </MenuItem>
         </div>
+
         <div className="py-1">
           <MenuItem>
             <button
               type="button"
               onClick={handleLogout}
-              className="block w-full rounded-lg px-4 py-2 text-left text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900 data-[focus]:outline-none"
+              className="text-color-text hover:bg-color-second hover:text-color-heading data-[focus]:bg-color-second data-[focus]:text-color-heading block w-full rounded-lg px-4 py-2 text-left text-sm transition-colors data-[focus]:outline-none"
             >
               Logout
             </button>
